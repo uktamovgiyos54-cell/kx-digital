@@ -286,11 +286,12 @@ function initAccordion() {
     btn.setAttribute('aria-expanded', String(open));
     if (open) {
       panel.hidden = false;
-      requestAnimationFrame(() => item.classList.add('is-open'));
+      void panel.offsetHeight; // yopiq holatni chizdirib olamiz, shunda ochilish animatsiyasi ishlaydi
+      item.classList.add('is-open');
     } else {
       item.classList.remove('is-open');
       const done = () => { if (btn.getAttribute('aria-expanded') === 'false') panel.hidden = true; };
-      if (reducedMotion) done(); else panel.addEventListener('transitionend', done, { once: true });
+      setTimeout(done, reducedMotion ? 0 : 320); // CSS dagi .3s yopilish animatsiyasidan keyin
     }
   });
 }

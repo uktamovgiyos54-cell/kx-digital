@@ -517,6 +517,8 @@ mark { background: none; color: inherit; }
   box-shadow: 0 0 0 6px var(--bg);
 }
 .step:last-child .step__num { background: var(--accent); color: var(--accent-contrast); }
+.step__num { transition: transform .2s var(--ease); }
+.step:hover .step__num { transform: translateY(-3px); }
 .step__body { padding-top: .5rem; }
 .step__title { font-size: 1.05rem; font-weight: 600; }
 .step__desc { margin-top: var(--s-1); color: var(--text-muted); font-size: .96rem; }
@@ -529,6 +531,8 @@ mark { background: none; color: inherit; }
   background: var(--surface); border: 1px solid var(--border);
 }
 .review:nth-child(2) { background: var(--surface-2); }
+.js .reviews .review.is-visible { transition: opacity .5s var(--ease), transform .2s var(--ease), box-shadow .2s var(--ease); transition-delay: 0s; }
+.js .reviews .review.is-visible:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
 .review__stars { display: flex; gap: 2px; color: var(--accent); }
 .review__stars .i { width: 18px; height: 18px; }
 .review__text { font-size: 1.02rem; line-height: 1.65; }
@@ -551,7 +555,8 @@ mark { background: none; color: inherit; }
 }
 .acc__icon { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--bg-alt); flex: none; transition: transform .3s var(--ease), background-color .2s; }
 .acc.is-open .acc__icon { transform: rotate(45deg); background: var(--accent); color: var(--accent-contrast); }
-.acc__panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .35s var(--ease); }
+.acc__panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .3s var(--ease); }
+.acc__panel[hidden] { display: none; }
 .acc.is-open .acc__panel { grid-template-rows: 1fr; }
 .acc__inner { overflow: hidden; }
 .acc__inner p { padding: 0 var(--s-5) var(--s-5); color: var(--text-muted); }
@@ -666,7 +671,16 @@ mark { background: none; color: inherit; }
 :root[data-theme="dark"] .toast { background: #1C2944; }
 
 /* ---------- SCROLL ANIMATSIYASI ---------- */
-.js .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s var(--ease), transform .7s var(--ease); transition-delay: var(--d, 0s); }
+/* Sahifa ochilganda hero pog‘onali chiqishi */
+.hero__text > *, .hero__visual { animation: heroIn .5s var(--ease) both; }
+.hero__title { animation-delay: .06s; }
+.hero__lead { animation-delay: .12s; }
+.hero__actions { animation-delay: .18s; }
+.hero__trust { animation-delay: .24s; }
+.hero__visual { animation-delay: .2s; }
+@keyframes heroIn { from { opacity: 0; transform: translateY(12px); } }
+
+.js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .5s var(--ease), transform .5s var(--ease); transition-delay: var(--d, 0s); }
 .js .reveal.is-visible { opacity: 1; transform: none; }
 
 /* ---------- 5. RESPONSIVE ---------- */
@@ -730,7 +744,7 @@ mark { background: none; color: inherit; }
   .service--wide { grid-column: span 2; }
 
   .reviews { grid-template-columns: repeat(3, 1fr); }
-  .review:nth-child(2) { transform: translateY(24px); }
+  .review:nth-child(2) { margin-top: 24px; }
 
   .why { grid-template-columns: 1fr 1.7fr; gap: var(--s-16); align-items: start; }
   .why__intro { position: sticky; top: calc(var(--nav-h) + 32px); }
