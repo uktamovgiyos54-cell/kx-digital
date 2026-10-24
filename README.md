@@ -132,10 +132,14 @@ o‘zgartirish uchun `--gold-500` qiymatini almashtiring. Tungi mavzu ranglari p
 
 ## 6. Joriy joylashuv
 
-Sayt Netlify'da joylashgan: **https://kx-digital.netlify.app**
+- Sayt: **https://kx-digital.netlify.app**
+- Kod: **https://github.com/uktamovgiyos54-cell/kx-digital**
 
-Yangilash (o‘zgarishlardan keyin, `kx-digital` papkasida):
+Netlify GitHub repoga ulangan: `main` branchiga har bir `git push` qilinganda sayt **avtomatik** yangilanadi
+(odatda 1 daqiqa ichida). Qo‘lda joylash shart emas.
 
 ```bash
-npx netlify-cli deploy --prod --dir . --site kx-digital
+git add .
+git commit -m "O'zgarish tavsifi"
+git push
 ```
