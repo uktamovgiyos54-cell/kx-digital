@@ -1,0 +1,29 @@
+# Maxfiy ma'lumotlar (parol, token, API kalitlar)
+.env
+.env.*
+!.env.example
+
+# Netlify CLI lokal sozlamalari
+.netlify/
+
+# Node / paket menejerlari
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# Operatsion tizim fayllari
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Muharrir va IDE papkalari
+.vscode/
+.idea/
+*.swp
+
+# Claude Code lokal sozlamalari
+.claude/
+
+# Vaqtinchalik fayllar
+*.log
+*.tmp
