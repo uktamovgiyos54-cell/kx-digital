@@ -439,7 +439,7 @@ mark { background: none; color: inherit; }
 }
 .service__icon .i { width: 26px; height: 26px; stroke-width: 1.8; }
 .service__num { position: absolute; top: var(--s-6); right: var(--s-6); font-family: var(--font-display); font-size: .8rem; color: var(--text-muted); opacity: .7; }
-.service__tag { position: absolute; top: var(--s-5); right: var(--s-5); font-size: .72rem; font-weight: 600; padding: .25rem .6rem; border-radius: var(--r-full); background: var(--accent); color: var(--accent-contrast); }
+.service__tag { position: absolute; top: var(--s-5); right: var(--s-5); font-size: .78rem; font-weight: 600; padding: .25rem .6rem; border-radius: var(--r-full); background: var(--accent); color: var(--accent-contrast); }
 .service__title { font-size: 1.15rem; font-weight: 600; }
 .service__desc { margin-top: var(--s-2); color: var(--text-muted); font-size: .96rem; }
 .service__link {
@@ -468,7 +468,7 @@ mark { background: none; color: inherit; }
 .tabs { display: flex; gap: var(--s-1); padding: 4px; border-radius: var(--r-full); background: var(--bg-alt); border: 1px solid var(--border); overflow-x: auto; max-width: 100%; scrollbar-width: none; }
 .tabs::-webkit-scrollbar { display: none; }
 .tab {
-  flex: none; min-height: 38px; padding: .4rem .95rem; border: 0; border-radius: var(--r-full);
+  flex: none; min-height: 44px; padding: .4rem .95rem; border: 0; border-radius: var(--r-full);
   background: transparent; font-weight: 500; font-size: .9rem; color: var(--text-muted);
   transition: background-color .2s, color .2s;
 }
@@ -540,7 +540,7 @@ mark { background: none; color: inherit; }
 .review__avatar { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--ink-800); color: var(--gold-400); font-family: var(--font-display); font-weight: 600; flex: none; }
 .review__name { font-weight: 600; }
 .review__info { font-size: .87rem; color: var(--text-muted); }
-.review__service { margin-left: auto; font-size: .75rem; font-weight: 600; padding: .25rem .6rem; border-radius: var(--r-full); background: var(--gold-100); color: #7A5307; white-space: nowrap; }
+.review__service { margin-left: auto; font-size: .8rem; font-weight: 600; padding: .25rem .6rem; border-radius: var(--r-full); background: var(--gold-100); color: #7A5307; white-space: nowrap; }
 
 /* ---------- FAQ ---------- */
 .faq { display: grid; gap: var(--s-8); }
@@ -583,14 +583,14 @@ mark { background: none; color: inherit; }
 
 .copy-btn {
   display: inline-flex; align-items: center; gap: .35rem;
-  min-height: 36px; padding: .35rem .75rem; border-radius: var(--r-full);
+  min-height: 40px; padding: .35rem .8rem; border-radius: var(--r-full);
   border: 1px solid rgba(255, 255, 255, .25); background: rgba(255, 255, 255, .06); color: #fff;
   font-size: .85rem; font-weight: 500; transition: background-color .2s, border-color .2s;
 }
 .copy-btn:hover { background: rgba(255, 255, 255, .14); border-color: rgba(255, 255, 255, .45); }
 .copy-btn .i { width: 15px; height: 15px; }
 .copy-btn.is-done { border-color: var(--gold-400); color: var(--gold-400); }
-.copy-btn--sm { min-height: 30px; padding: .2rem .6rem; font-size: .8rem; }
+.copy-btn--sm { min-height: 36px; padding: .2rem .6rem; font-size: .8rem; }
 
 /* Tezkor buyurtma formasi */
 .qform {
@@ -630,13 +630,15 @@ mark { background: none; color: inherit; }
 .footer__grid { display: grid; gap: var(--s-10); padding-bottom: var(--s-10); }
 .footer__brand p { margin-top: var(--s-4); max-width: 40ch; font-size: .95rem; }
 .footer__h { font-family: var(--font-display); font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; color: #fff; margin-bottom: var(--s-4); font-weight: 600; }
-.footer__contacts { display: grid; gap: var(--s-3); }
+.footer__contacts { display: grid; gap: 0; }
 .footer__contacts li { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
 .footer__contacts .i { color: var(--gold-400); }
 .footer__label { color: #7F8CA6; }
 .footer a { color: #E8EDF6; transition: color .2s; }
 .footer a:hover { color: var(--gold-400); }
-.footer__nav { display: grid; gap: var(--s-2); }
+.footer__nav { display: grid; gap: 0; }
+.footer__nav a, .footer__contacts a { display: inline-flex; align-items: center; min-height: 44px; }
+.cta__phone a { display: inline-flex; align-items: center; min-height: 44px; }
 .footer__bottom { padding-block: var(--s-6); border-top: 1px solid rgba(255, 255, 255, .08); font-size: .88rem; color: #7F8CA6; }
 
 /* ---------- SUZUVCHI TUGMA ---------- */
@@ -757,6 +759,13 @@ mark { background: none; color: inherit; }
 
 @media (min-width: 1280px) {
   .hero__title { font-size: 3.55rem; }
+}
+
+/* Telefonlar: tablar ikki qatorda (yonga surish shart emas), footer suzuvchi tugma ostida qolmasin */
+@media (max-width: 639px) {
+  .tabs { display: grid; grid-template-columns: 1fr 1fr; width: 100%; border-radius: var(--r-md); overflow: visible; }
+  .tab { border-radius: 10px; }
+  .footer__bottom { padding-bottom: 96px; }
 }
 
 /* Telefonlarda hero kompozitsiyasini ixchamroq qilamiz */
