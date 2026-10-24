@@ -27,7 +27,7 @@ const SITE = {
     { icon: 'file', title: 'Referat yaratish', desc: 'Talablarga mos tuzilma, adabiyotlar ro‘yxati va to‘g‘ri rasmiylashtirilgan referat.' },
     { icon: 'pen', title: 'Mustaqil ish yaratish', desc: 'Fan va mavzu bo‘yicha o‘qituvchi talablarini hisobga olgan holda tayyorlangan mustaqil ish.' },
     { icon: 'layers', title: 'Kurs ishi yaratish', desc: 'Nazariy va amaliy qismlari bilan to‘liq kurs ishi — himoyaga tayyor holda.' },
-    { icon: 'cap', title: 'Diplom ishi (BMI) yaratish', desc: 'Bitiruv malakaviy ishi: rejadan tortib himoya taqdimotigacha bosqichma-bosqich hamkorlik.', wide: true, featured: true },
+    { icon: 'cap', title: 'Diplom ishi (BMI) va dissertatsiya', desc: 'Bitiruv malakaviy ishi, magistrlik va PhD dissertatsiyasi: rejadan tortib himoya taqdimotigacha bosqichma-bosqich hamkorlik.', wide: true, featured: true },
     { icon: 'image', title: 'AI yordamida rasm yaratish', desc: 'Taqdimot, maqola yoki ijtimoiy tarmoq uchun sun’iy intellekt yordamida noyob rasmlar.' },
   ],
 
@@ -39,10 +39,13 @@ const SITE = {
     { id: 'interactive', label: 'Interaktiv' },
   ],
   extras: [
+    { title: 'Hemis va modul vazifalari', cats: ['study'], icon: 'inbox' },
+    { title: 'Test tayyorlash', cats: ['study'], icon: 'check' },
+    { title: 'Glossary tayyorlash', cats: ['study'], icon: 'book' },
     { title: 'Insho / Esse', cats: ['study'], icon: 'pen' },
     { title: 'Krossvord', cats: ['interactive'], icon: 'sparkles' },
     { title: 'Flesh kartalar', cats: ['interactive', 'study'], icon: 'layers' },
-    { title: 'Quiz / Test', cats: ['interactive'], icon: 'check' },
+    { title: 'Interaktiv quiz', cats: ['interactive'], icon: 'sparkles' },
     { title: 'Rezyume', cats: ['study'], icon: 'file' },
     { title: 'Maqola', cats: ['science'], icon: 'book' },
     { title: 'Tezis', cats: ['science'], icon: 'file' },
