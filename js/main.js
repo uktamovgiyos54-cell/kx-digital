@@ -1,5 +1,5 @@
 /* =========================================================
-   KX_digital — main.js
+   KxEdu — main.js
    Saytdagi barcha o‘zgaruvchan matnlar shu yerdagi SITE obyektida.
    Matn, raqam yoki havolani o‘zgartirish uchun faqat SITE ni tahrirlang.
    ========================================================= */

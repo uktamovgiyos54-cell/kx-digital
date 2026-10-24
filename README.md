@@ -1,4 +1,4 @@
-# KX_digital — landing page
+# KxEdu (KX_digital) — landing page
 
 Talabalar, magistrantlar va o‘qituvchilar uchun o‘quv va ilmiy ishlar xizmatining bir sahifali sayti.
 Toza HTML + CSS + vanilla JavaScript — hech qanday framework yoki build jarayoni kerak emas.
