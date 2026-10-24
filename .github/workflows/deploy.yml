@@ -1,0 +1,52 @@
+# main ga push bo'lganda saytni Hetzner serverga joylaydi.
+# Kalit serverda cheklangan: u bilan faqat /srv/sites/deploy-hook.sh ishga tushadi.
+# Kerakli sozlamalar (Settings → Secrets and variables → Actions):
+#   secrets:   DEPLOY_SSH_KEY, DEPLOY_KNOWN_HOSTS
+#   variables: DEPLOY_HOST, DEPLOY_USER
+name: Serverga deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-server
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: SSH kalit va server barmoq izini sozlash
+        env:
+          SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+        run: |
+          install -d -m 700 ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+
+      - name: Serverni yangilash
+        env:
+          DEPLOY_HOST: ${{ vars.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ vars.DEPLOY_USER }}
+        run: |
+          out=$(ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes \
+            -o ConnectTimeout=20 "$DEPLOY_USER@$DEPLOY_HOST")
+          echo "$out"
+          if grep -q "DEPLOYED kx-digital ${GITHUB_SHA}" <<< "$out"; then
+            echo "Serverda ${GITHUB_SHA::7} commiti joylandi."
+          else
+            echo "::error::Serverdagi commit ${GITHUB_SHA::7} emas. Yuqoridagi natijani tekshiring."
+            exit 1
+          fi
+
+      - name: Kalitni o'chirish
+        if: always()
+        run: rm -f ~/.ssh/deploy_key
