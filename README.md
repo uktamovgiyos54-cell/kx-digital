@@ -9,8 +9,9 @@ kx-digital/
 ├── css/style.css     — dizayn tokenlari (ranglar, shriftlar, oraliqlar) va barcha uslublar
 ├── js/main.js        — kontent (SITE obyekti) va interaktivlik
 ├── assets/
-│   ├── logo.svg      — to‘liq logo (belgi + yozuv)
-│   ├── favicon.svg   — brauzer ikonkasi / logo belgisi
+│   ├── logo-mark.png — saytdagi logo (menyu va footer)
+│   ├── logo-512.png  — katta logo (Google / schema.org)
+│   ├── favicon-32.png, apple-touch-icon.png — brauzer va telefon ikonkalari
 │   └── og-image.png  — Telegram, Facebook va boshqalarda havola ulashilganda chiqadigan rasm (1200×630)
 └── README.md
 ```
