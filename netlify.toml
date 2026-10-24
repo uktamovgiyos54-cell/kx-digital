@@ -1,0 +1,4 @@
+# Netlify sozlamalari: build kerak emas, sayt fayllari repo ildizida
+[build]
+  publish = "."
+  command = ""
